@@ -1,0 +1,1 @@
+{ "version": "0.2", "build": 2, "zip": "https://henri-cmd.github.io/BBHM-/BBHM-app.zip", "notes": "Claim date periods that pre-fill YNAB dates; YNAB flags set per-expense, in bulk, or per-claim (Not Expensed/Expensed/Paid); add receipts straight into a claim; in-app auto-update." }
