@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BBHM$ — Receipts → expense claims, on your Mac</title>
+<meta name="description" content="BBHM$ turns a pile of receipts into a finished expense claim. Scan, reconcile, and export — on your Mac.">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<style>
+  :root{
+    --green:#0f9d58; --green-d:#0a5d35; --ink:#10271d; --night:#0b1f17;
+    --gold:#f6c343; --bg:#f5f8f6; --card:#ffffff; --line:#e2ece6; --muted:#5d756a;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font:17px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:#16241d;background:var(--bg)}
+  a{color:var(--green-d)}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+
+  nav{position:sticky;top:0;z-index:10;background:rgba(245,248,246,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:18px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.3px}
+  nav .brand img{width:30px;height:30px;border-radius:7px}
+  nav .links{margin-left:auto;display:flex;gap:20px}
+  nav .links a{color:#34514380;text-decoration:none;color:var(--muted);font-size:15px}
+  nav .links a:hover{color:var(--green-d)}
+  nav .dl{background:var(--green);color:#fff!important;padding:8px 16px;border-radius:9px;font-weight:700;font-size:15px}
+
+  header.hero{background:linear-gradient(150deg,#0f9d58,#0a5d35);color:#eaf7ef;text-align:center;padding:64px 0 72px}
+  .hero img.app{width:108px;height:108px;border-radius:24px;box-shadow:0 16px 40px rgba(0,0,0,.35)}
+  .hero h1{font-size:46px;margin:18px 0 6px;font-weight:850;letter-spacing:.5px}
+  .hero p.tag{font-size:21px;margin:0 auto 26px;max-width:620px;opacity:.95}
+  .btn{display:inline-block;background:#fff;color:var(--green-d);font-weight:800;font-size:19px;padding:16px 34px;border-radius:14px;text-decoration:none;box-shadow:0 10px 26px rgba(0,0,0,.22)}
+  .btn:hover{transform:translateY(-1px)}
+  .hero small{display:block;margin-top:14px;opacity:.85;font-size:14px}
+
+  section{padding:54px 0}
+  h2{font-size:30px;margin:0 0 8px}
+  .sub{color:var(--muted);margin:0 0 26px}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .card .em{font-size:26px}
+  .card h3{margin:10px 0 4px;font-size:18px}
+  .card p{margin:0;color:var(--muted);font-size:15px}
+
+  .alt{background:#ebf3ee}
+  ol.steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+  ol.steps li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px 16px 58px}
+  ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;display:grid;place-items:center}
+  ol.steps li b{display:block;margin-bottom:2px}
+  code{background:#0b1f17;color:#9bf6b0;padding:2px 7px;border-radius:6px;font-size:14px}
+  .note{background:#fff8e1;border:1px solid #f3e3a8;border-radius:12px;padding:14px 16px;font-size:15px;color:#5b4a16}
+
+  .reqs{display:flex;gap:14px;flex-wrap:wrap}
+  .req{flex:1;min-width:200px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+  .req b{display:block;font-size:15px;color:var(--muted)}
+  .req span{font-size:19px;font-weight:700}
+
+  .iphone{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:center}
+  .iphone .panel{background:linear-gradient(150deg,#0f9d58,#0a5d35);color:#eaf7ef;border-radius:18px;padding:26px;text-align:center}
+  .iphone .panel .qr{width:120px;height:120px;background:#fff;border-radius:12px;margin:0 auto 12px;display:grid;place-items:center;color:#0a5d35;font-size:40px}
+
+  footer{padding:36px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line);text-align:center}
+
+  @media(max-width:760px){
+    .grid{grid-template-columns:1fr}
+    .iphone{grid-template-columns:1fr}
+    nav .links a:not(.dl){display:none}
+    .hero h1{font-size:38px}
+  }
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand"><img src="icon.png" alt=""> BBHM$</div>
+  <div class="links">
+    <a href="#features">Features</a>
+    <a href="#install">Install</a>
+    <a href="#use">How to use</a>
+    <a href="#iphone">iPhone</a>
+    <a class="dl" href="BBHM-for-Mac.zip" download="BBHM$.zip">Download</a>
+  </div>
+</div></nav>
+
+<header class="hero"><div class="wrap">
+  <img class="app" src="icon.png" alt="BBHM$ app icon">
+  <h1>BBHM$</h1>
+  <p class="tag">Turn a pile of receipts into a finished expense claim — scanned, reconciled, and exported, all on your Mac.</p>
+  <a class="btn" href="BBHM-for-Mac.zip" download="BBHM$.zip">⬇︎ Download for Mac</a>
+  <small>Apple-Silicon Mac · macOS 14+ · ~2 MB · first open takes one quick step (see below)</small>
+</div></header>
+
+<section id="features"><div class="wrap">
+  <h2>What it does</h2>
+  <p class="sub">Everything from a shoebox of receipts to a submittable claim.</p>
+  <div class="grid">
+    <div class="card"><div class="em">🧾</div><h3>Reads your receipts</h3><p>Drag in PDFs or photos — it pulls out the vendor, date, and total automatically (on-device OCR, with optional AI for the messy ones).</p></div>
+    <div class="card"><div class="em">📅</div><h3>Dated claims</h3><p>Group expenses into named claims, see the running total, and package each one when it's ready.</p></div>
+    <div class="card"><div class="em">👯</div><h3>Duplicate detection</h3><p>Flags the same receipt scanned twice so you don't double-claim — you choose which to keep.</p></div>
+    <div class="card"><div class="em">🏦</div><h3>Bank &amp; YNAB reconcile</h3><p>Import a statement or connect YNAB to match receipts against what actually hit the card.</p></div>
+    <div class="card"><div class="em">📤</div><h3>One-click export</h3><p>A formatted Excel sheet, a CSV, or a full submission pack — named PDFs plus a combined file with a contents page.</p></div>
+    <div class="card"><div class="em">📱</div><h3>Snap from your phone</h3><p>Capture receipts on your iPhone and send them straight to the Mac over Wi-Fi. <a href="#iphone">How →</a></p></div>
+  </div>
+</div></section>
+
+<section id="install" class="alt"><div class="wrap">
+  <h2>Install &amp; open</h2>
+  <p class="sub">It's a Mac app from outside the App Store, so the first open takes one extra step. You only do it once.</p>
+
+  <div class="reqs" style="margin-bottom:22px">
+    <div class="req"><b>Mac</b><span>Apple Silicon (M1–M4)</span></div>
+    <div class="req"><b>macOS</b><span>14 Sonoma or later</span></div>
+    <div class="req"><b>Size</b><span>~2 MB download</span></div>
+  </div>
+
+  <ol class="steps">
+    <li><b>Download &amp; unzip</b> the file above, then drag <b>BBHM$</b> into your Applications folder.</li>
+    <li><b>Double-click it.</b> macOS shows a warning — click <b>Done</b>.</li>
+    <li><b>Open the Apple menu  → System Settings → Privacy &amp; Security.</b> Scroll down to “BBHM$ was blocked…” and click <b>Open Anyway</b>, then confirm.</li>
+    <li><b>That's it</b> — it opens normally every time after.</li>
+  </ol>
+
+  <p class="note" style="margin-top:16px">If macOS says <b>“BBHM$ is damaged”</b> or there's no “Open Anyway” button: open <b>Terminal</b> (Applications → Utilities), type <code>xattr -cr</code> and a space, drag the BBHM$ app onto the window, press Return, then open the app. This just clears the “downloaded from the internet” flag.</p>
+</div></section>
+
+<section id="use"><div class="wrap">
+  <h2>How to use it</h2>
+  <p class="sub">From receipts to a finished claim in a few minutes.</p>
+  <ol class="steps">
+    <li><b>Add receipts</b> — drag PDFs/photos onto the window, click Import, or send them from your phone. Each one is read automatically.</li>
+    <li><b>Review</b> — a receipt preview sits on the right; fix anything in the details panel and tick <b>✓</b> when you've confirmed a row.</li>
+    <li><b>File into a claim</b> — select rows and “Move to Claim”, e.g. “May 2026”. The sidebar shows each claim's total.</li>
+    <li><b>Reconcile (optional)</b> — import a bank statement or connect YNAB to match receipts against your card.</li>
+    <li><b>Export</b> — Excel/CSV, or “Package for Submission” for a tidy folder of named PDFs + a combined file with a contents page.</li>
+  </ol>
+</div></section>
+
+<section id="iphone" class="alt"><div class="wrap">
+  <h2>📱 iPhone companion</h2>
+  <p class="sub">There's nothing extra to download — it's built into the Mac app.</p>
+  <div class="iphone">
+    <ol class="steps" style="margin:0">
+      <li><b>In BBHM$, click the Phone button</b> in the toolbar. A QR code appears.</li>
+      <li><b>Point your iPhone's camera at the QR</b> (phone and Mac on the same Wi-Fi) and tap the link.</li>
+      <li><b>Tap Share → Add to Home Screen</b> to keep it as a BBHM$ icon on your phone.</li>
+      <li><b>Snap your receipts and tap Send</b> — they appear on the Mac within a second or two, ready to file.</li>
+    </ol>
+    <div class="panel">
+      <div class="qr">▦</div>
+      <b>Scan → snap → send</b>
+      <p style="opacity:.9;font-size:14px;margin:8px 0 0">Works entirely on your local Wi-Fi — nothing goes to the internet.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <h2>Is it safe?</h2>
+  <p class="sub">Short version: yes.</p>
+  <div class="grid">
+    <div class="card"><h3>Why the warning?</h3><p>The app isn't “notarised” by Apple, which needs a paid developer account. The warning is Apple's default for any app from outside the App Store — not a sign anything's wrong.</p></div>
+    <div class="card"><h3>Where's my data?</h3><p>Everything stays on your Mac. It only uses the internet for the optional features you set up yourself — Anthropic (to read receipts) and YNAB (to reconcile).</p></div>
+    <div class="card"><h3>Who's it for?</h3><p>Anyone who has to turn receipts into an expense claim and is tired of doing it by hand.</p></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  BBHM$ — made with 💸 &nbsp;·&nbsp; <a href="BBHM-for-Mac.zip" download="BBHM$.zip">Download for Mac</a>
+</div></footer>
+
+</body>
+</html>
