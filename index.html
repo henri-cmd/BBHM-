@@ -70,6 +70,42 @@
     nav .links a:not(.dl){display:none}
     .hero h1{font-size:38px}
   }
+
+  /* annotated UI mockups */
+  .mock{background:#fbfdfc;border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 24px rgba(16,39,29,.07);overflow:hidden}
+  .mock .bar{display:flex;align-items:center;gap:10px;background:#eef3f0;border-bottom:1px solid var(--line);padding:9px 12px;flex-wrap:wrap}
+  .mock .dots{display:flex;gap:6px}
+  .mock .dots i{width:11px;height:11px;border-radius:50%;display:inline-block}
+  .mock .title{font-weight:700;font-size:13px;color:#16241d}
+  .mock .body{padding:14px}
+  .tbtns{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto}
+  .mbtn{display:inline-flex;flex-direction:column;align-items:center;gap:2px;font-size:10px;color:#46604f;min-width:42px}
+  .mbtn .g{font-size:16px;line-height:1}
+  .mbtn.hl{color:var(--green-d);font-weight:700}
+  .mbtn.hl .g{background:#dcf3e5;border:1.5px solid var(--green);border-radius:7px;padding:2px 5px}
+  .fieldrow{display:flex;align-items:center;gap:10px;margin:6px 0}
+  .fieldrow .lab{width:84px;color:var(--muted);font-size:13px;text-align:right}
+  .fieldrow .inp{flex:1;background:#fff;border:1.5px solid var(--green);border-radius:8px;padding:8px 10px;font-family:ui-monospace,SFMono-Regular,monospace;font-size:13px;color:#9bb3a6}
+  .greenbtn{background:var(--green);color:#fff;border-radius:8px;padding:7px 14px;font-weight:700;font-size:13px;display:inline-block}
+  .callout{display:flex;gap:9px;align-items:flex-start;margin-top:10px;font-size:14px;color:#34514a}
+  .callout .num{flex:none;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;font-size:12px;display:grid;place-items:center}
+  .pills{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:6px}
+  .rpill{font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px}
+  .rrow{display:flex;align-items:center;gap:9px;padding:8px 2px;border-top:1px solid var(--line);font-size:13px}
+  .rbadge{font-size:10px;font-weight:800;padding:2px 8px;border-radius:999px;white-space:nowrap}
+  .mside .grp{font-size:11px;text-transform:uppercase;letter-spacing:.4px;color:#8aa597;margin:6px 4px 3px}
+  .mrow{display:flex;align-items:center;gap:7px;padding:6px 8px;border-radius:7px;font-size:13px}
+  .mrow.act{background:#dcf3e5;font-weight:700;color:var(--green-d)}
+  .mrow .ct{margin-left:auto;color:#8aa597;font-size:12px;font-weight:400}
+  .phone{width:188px;margin:0 auto;border:9px solid #16241f;border-radius:30px;background:#0b1f17;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+  .phone .ph{background:linear-gradient(135deg,#0f9d58,#0a5d35);color:#eaf7ef;padding:9px 12px;font-weight:800;font-size:13px}
+  .phone .pb{padding:10px}
+  .phone .pcap{border:2px dashed #2e7d57;border-radius:11px;padding:14px 8px;text-align:center;color:#bfe7d2;font-size:12px;font-weight:700}
+  .phone .pthumb{background:#10271d;border-radius:8px;padding:7px 9px;margin-top:8px;font-size:11px;color:#cfeadb}
+  .phone .psend{background:#0f9d58;color:#fff;text-align:center;border-radius:10px;padding:9px;font-weight:800;margin-top:8px;font-size:12px}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
+  .figcap{font-size:13px;color:var(--muted);margin-top:8px;text-align:center}
+  @media(max-width:760px){ .twocol{grid-template-columns:1fr} .tbtns{margin-left:0} }
 </style>
 </head>
 <body>
@@ -131,6 +167,26 @@
 <section id="use"><div class="wrap">
   <h2>How to use it</h2>
   <p class="sub">From receipts to a finished claim in a few minutes.</p>
+
+  <div class="mock" style="margin-bottom:24px">
+    <div class="bar">
+      <span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span>
+      <span class="title">BITCH BETTER HAVE MY MONEY</span>
+      <span class="tbtns">
+        <span class="mbtn hl"><span class="g">⬇︎</span>Import</span>
+        <span class="mbtn hl"><span class="g">📱</span>Phone</span>
+        <span class="mbtn hl"><span class="g">＋</span>Add</span>
+        <span class="mbtn"><span class="g">🗑</span>Delete</span>
+        <span class="mbtn"><span class="g">📁</span>Move</span>
+        <span class="mbtn"><span class="g">⤴︎</span>Export</span>
+        <span class="mbtn"><span class="g">🏦</span>Reconcile</span>
+        <span class="mbtn"><span class="g">🔁</span>YNAB</span>
+        <span class="mbtn"><span class="g">⚙︎</span>Settings</span>
+      </span>
+    </div>
+    <div class="body" style="font-size:14px;color:var(--muted)">The toolbar runs across the top of the window. The <b style="color:var(--green-d)">highlighted</b> buttons add expenses; the rest export, reconcile and configure.</div>
+  </div>
+
   <ol class="steps">
     <li><b>Add receipts</b> — drag PDFs/photos onto the window, click Import, or send them from your phone. Each one is read automatically.</li>
     <li><b>Review</b> — a receipt preview sits on the right; fix anything in the details panel and tick <b>✓</b> when you've confirmed a row.</li>
@@ -138,6 +194,26 @@
     <li><b>Reconcile (optional)</b> — import a bank statement or connect YNAB to match receipts against your card.</li>
     <li><b>Export</b> — Excel/CSV, or “Package for Submission” for a tidy folder of named PDFs + a combined file with a contents page.</li>
   </ol>
+
+  <h3 style="margin:28px 0 12px">Add straight into a claim</h3>
+  <div class="twocol">
+    <div class="mock">
+      <div class="bar"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><span class="title">Sidebar — Claim</span></div>
+      <div class="body mside" style="padding:10px">
+        <div class="grp">Claim</div>
+        <div class="mrow">🗂 All claims <span class="ct">44</span></div>
+        <div class="mrow">📥 Unfiled <span class="ct">3</span></div>
+        <div class="mrow act">📁 May 2026 <span class="ct">41</span></div>
+        <div class="mrow" style="color:var(--green-d)">＋ New Claim…</div>
+      </div>
+    </div>
+    <div>
+      <div class="callout"><span class="num">1</span><div>Click a claim (e.g. <b>May 2026</b>) so it's selected.</div></div>
+      <div class="callout"><span class="num">2</span><div>Now <b>everything you add</b> — drag-drop, Import, Phone, Add — files straight into it.</div></div>
+      <div class="callout"><span class="num">3</span><div>Or <b>drag receipt files right onto a claim</b> in this list to drop them in.</div></div>
+      <p class="figcap" style="text-align:left;margin-top:12px">The footer confirms it: <b style="color:#16241d">📥 adding to May 2026</b></p>
+    </div>
+  </div>
 </div></section>
 
 <section id="setup" class="alt"><div class="wrap">
@@ -165,6 +241,25 @@
       </ol>
     </div>
   </div>
+
+  <div class="twocol" style="margin-top:20px">
+    <div class="mock">
+      <div class="bar"><span class="title">⚙︎ Settings</span></div>
+      <div class="body">
+        <div class="fieldrow"><span class="lab">API key</span><span class="inp">sk-ant-•••••••••••••</span></div>
+        <div class="callout"><span class="num">↑</span><div>Paste your <b>Anthropic key</b> here and close. New receipts get read by AI.</div></div>
+      </div>
+    </div>
+    <div class="mock">
+      <div class="bar"><span class="title">🔁 YNAB</span></div>
+      <div class="body">
+        <div class="fieldrow"><span class="lab">Token</span><span class="inp">paste your YNAB token…</span></div>
+        <div style="text-align:right;margin-top:8px"><span class="greenbtn">Connect</span></div>
+        <div class="callout"><span class="num">↑</span><div>Paste your <b>YNAB token</b>, click <b>Connect</b> — it's remembered next time.</div></div>
+      </div>
+    </div>
+  </div>
+
   <p class="note" style="margin-top:16px">🔒 Your keys live on your Mac (the Anthropic key in the macOS Keychain; the YNAB token saved in the app so it reconnects). They're only ever sent to Anthropic and YNAB — nowhere else.</p>
 </div></section>
 
@@ -192,6 +287,23 @@
       </ol>
     </div>
   </div>
+
+  <div class="mock" style="margin-bottom:14px">
+    <div class="bar"><span class="dots"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i></span><span class="title">🏦 Reconcile</span></div>
+    <div class="body">
+      <div class="pills">
+        <span class="rpill" style="background:#dcfce7;color:#15803d">✅ Matched 12</span>
+        <span class="rpill" style="background:#fee2e2;color:#b91c1c">🚩 Missing 2</span>
+        <span class="rpill" style="background:#ffedd5;color:#c2410c">⚠️ Mismatch 1</span>
+        <span class="rpill" style="background:#fef9c3;color:#a16207">🧾 No bank match 3</span>
+      </div>
+      <div class="rrow"><span class="rbadge" style="background:#fee2e2;color:#b91c1c">MISSING</span><span>Uber — $24.60</span><span style="margin-left:auto"><span class="greenbtn" style="padding:5px 11px;font-size:12px">Import as missing</span></span></div>
+      <div class="rrow"><span class="rbadge" style="background:#dcfce7;color:#15803d">MATCHED</span><span>Aperitivo Pizza &amp; Pasta — $110.98</span><span class="rbadge" style="margin-left:auto;background:#ede9fe;color:#6d28d9">✓ flagged</span></div>
+      <div class="rrow"><span class="rbadge" style="background:#ffedd5;color:#c2410c">MISMATCH</span><span>Wilson Parking — bank $88.00 vs receipt $90.00</span></div>
+    </div>
+  </div>
+  <p class="figcap" style="margin-bottom:22px">Each line is colour-coded, so what needs attention jumps out.</p>
+
   <h3 style="margin:0 0 10px">What you'll see</h3>
   <div class="grid">
     <div class="card"><h3 style="color:#15803d">✅ Matched</h3><p>Receipt and charge agree — nothing to do.</p></div>
@@ -212,10 +324,17 @@
       <li><b>Tap Share → Add to Home Screen</b> to keep it as a BBHM$ icon on your phone.</li>
       <li><b>Snap your receipts and tap Send</b> — they appear on the Mac within a second or two, ready to file.</li>
     </ol>
-    <div class="panel">
-      <div class="qr">▦</div>
-      <b>Scan → snap → send</b>
-      <p style="opacity:.9;font-size:14px;margin:8px 0 0">Works entirely on your local Wi-Fi — nothing goes to the internet.</p>
+    <div>
+      <div class="phone">
+        <div class="ph">BBHM$ · Add Receipts</div>
+        <div class="pb">
+          <div class="pcap">📸 Take or choose receipts</div>
+          <div class="pthumb">🧾 receipt-01.jpg</div>
+          <div class="pthumb">🧾 receipt-02.jpg</div>
+          <div class="psend">Send 2 to Mac ✓</div>
+        </div>
+      </div>
+      <p class="figcap">The companion on your phone — snap, then Send.</p>
     </div>
   </div>
 </div></section>
