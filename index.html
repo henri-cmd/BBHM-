@@ -79,7 +79,9 @@
   <div class="links">
     <a href="#features">Features</a>
     <a href="#install">Install</a>
-    <a href="#use">How to use</a>
+    <a href="#use">Use</a>
+    <a href="#setup">Setup</a>
+    <a href="#reconcile">Reconcile</a>
     <a href="#iphone">iPhone</a>
     <a class="dl" href="BBHM-for-Mac.zip" download="BBHM$.zip">Download</a>
   </div>
@@ -136,6 +138,68 @@
     <li><b>Reconcile (optional)</b> — import a bank statement or connect YNAB to match receipts against your card.</li>
     <li><b>Export</b> — Excel/CSV, or “Package for Submission” for a tidy folder of named PDFs + a combined file with a contents page.</li>
   </ol>
+</div></section>
+
+<section id="setup" class="alt"><div class="wrap">
+  <h2>Set up the smart features <span style="font-weight:400;color:var(--muted);font-size:18px">— optional</span></h2>
+  <p class="sub">BBHM$ works the moment you open it. Add a key to switch on the AI and YNAB features whenever you like.</p>
+  <div class="grid" style="grid-template-columns:1fr 1fr">
+    <div class="card">
+      <div class="em">🤖</div>
+      <h3>Anthropic — read receipts with AI</h3>
+      <p style="margin-bottom:12px">Without a key, BBHM$ still reads receipts on your Mac. A key adds AI that nails the messy ones — faded thermal paper, odd layouts, handwriting. Pay-as-you-go, a fraction of a cent per receipt.</p>
+      <ol class="steps" style="gap:8px">
+        <li>Go to <a href="https://console.anthropic.com/settings/keys" target="_blank" rel="noopener">console.anthropic.com</a> → <b>API Keys</b> → <b>Create Key</b>, and copy it.</li>
+        <li>In BBHM$, click <b>Settings</b> (the gear) and paste it into the API-key field.</li>
+        <li>That's it — receipts you add from now on are read automatically.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <div class="em">🔁</div>
+      <h3>YNAB — reconcile against your budget</h3>
+      <p style="margin-bottom:12px">Connect YNAB to match receipts against the transactions that actually hit your card. It's <b>read-only</b> — it never creates or edits transactions (it can optionally add a colour flag to ones you've reconciled).</p>
+      <ol class="steps" style="gap:8px">
+        <li>In YNAB: <b>Account Settings → Developer Settings → New Token</b>, and copy it.</li>
+        <li>In BBHM$, click the <b>YNAB</b> button, paste the token, and click <b>Connect</b>.</li>
+        <li>It's remembered for next time — pick your budget and you're set.</li>
+      </ol>
+    </div>
+  </div>
+  <p class="note" style="margin-top:16px">🔒 Your keys live on your Mac (the Anthropic key in the macOS Keychain; the YNAB token saved in the app so it reconnects). They're only ever sent to Anthropic and YNAB — nowhere else.</p>
+</div></section>
+
+<section id="reconcile"><div class="wrap">
+  <h2>Reconcile against your card</h2>
+  <p class="sub">Cross-check your receipts against what was actually charged, so nothing's missing or claimed twice.</p>
+  <div class="grid" style="grid-template-columns:1fr 1fr;margin-bottom:22px">
+    <div class="card">
+      <div class="em">🏦</div>
+      <h3>From a bank statement</h3>
+      <ol class="steps" style="gap:8px">
+        <li>Export a CSV from your bank, from YNAB, or a Linkt toll history.</li>
+        <li>In BBHM$, click <b>Reconcile</b> and choose the file.</li>
+        <li>Review the results (below) and import any that are missing.</li>
+      </ol>
+      <p style="color:var(--muted);font-size:14px;margin-top:10px">Got an old binary <code>.xls</code>? Open it in Numbers or Excel and re-save as CSV first.</p>
+    </div>
+    <div class="card">
+      <div class="em">📊</div>
+      <h3>Live from YNAB</h3>
+      <ol class="steps" style="gap:8px">
+        <li>Connect YNAB (see Setup), then click <b>YNAB</b> → <b>Compare</b>.</li>
+        <li>Narrow it by <b>budget, category, date range, or flag</b>.</li>
+        <li>Matched receipts get a green <b>✓ YNAB</b> tag in your list — and you can flag those transactions back in YNAB in one click.</li>
+      </ol>
+    </div>
+  </div>
+  <h3 style="margin:0 0 10px">What you'll see</h3>
+  <div class="grid">
+    <div class="card"><h3 style="color:#15803d">✅ Matched</h3><p>Receipt and charge agree — nothing to do.</p></div>
+    <div class="card"><h3 style="color:#b91c1c">🚩 Missing receipt</h3><p>A charge with no receipt. One click adds a placeholder so your claim stays complete.</p></div>
+    <div class="card"><h3 style="color:#c2410c">⚠️ Amount mismatch</h3><p>Receipt and charge differ — a tip or surcharge, maybe. Flagged for you; the receipt is always kept as the source of truth.</p></div>
+    <div class="card"><h3 style="color:#a16207">🧾 No bank match</h3><p>A receipt with no matching charge — perhaps paid another way or on a different card.</p></div>
+  </div>
+  <p class="note" style="margin-top:16px">💡 BBHM$ learns vendor-name quirks — e.g. a card terminal showing “ZLR*aperitivo” = “Aperitivo Pizza &amp; Pasta”. You can edit these aliases anytime in the reconcile window.</p>
 </div></section>
 
 <section id="iphone" class="alt"><div class="wrap">
